@@ -1,6 +1,6 @@
 angular.module('codebuddy', []).
     controller('PersonController', ['$scope', PersonController]);
 
-var PersonController = function ($scope) {
+function PersonController($scope) {
     $scope.name = "Some Person";
 };
