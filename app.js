@@ -1,9 +1,17 @@
-angular = require('angular');
+var angular = require('angular'),
+    express = require('express'),
+    routes = require('./routes'),
+    http = require('http');;
 
-var PersonController = function ($scope) {
-    $scope.username = "Some Person";
-    $scope.events = [];
-};
+var app = module.exports = express();
 
-angular.module('codeBuddy', ['restangular']).
-    controller('PersonController', ['$scope', PersonController]);
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', routes.index);
+
+http.createServer(app).listen(app.get('port'), function () {
+      console.log('Express server listening on port ' + app.get('port'));
+);
