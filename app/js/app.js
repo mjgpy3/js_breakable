@@ -3,5 +3,5 @@ var PersonController = function ($scope) {
     $scope.events = [];
 };
 
-angular.module('codeBuddy', []).
+angular.module('codeBuddy', ['restangular']).
     controller('PersonController', ['$scope', PersonController]);
