@@ -1,9 +1,8 @@
-var app = angular.module('codeBuddy', ['controllers']);
+var app = angular.module('codeBuddy', ['codeBuddy.controllers', 'codeBuddy.factories']);
 
-var controllers = angular.module('controllers', []);
-
-controllers.controller('PersonController', ['$scope', '$http', function ($scope, $http) {
-    $scope.name = '';
+angular.module('codeBuddy.controllers', []).
+  controller('PersonController', ['$scope', '$http', 'person', function ($scope, $http, person) {
+    $scope.name = person('1').github.username;
     $scope.events = [];
 
     $scope.findEvents = function () {
@@ -18,3 +17,10 @@ controllers.controller('PersonController', ['$scope', '$http', function ($scope,
           });
     }
 }]);
+
+angular.module('codeBuddy.factories', []).
+  factory('person', ['$http', function ($http) {
+      return function (personId) {
+          return { userId: '1', github: { username: 'mjgpy3' } };
+      };
+  }]);
