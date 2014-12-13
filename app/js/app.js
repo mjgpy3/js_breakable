@@ -2,8 +2,8 @@ var app = angular.module('codeBuddy', ['controllers']);
 
 var controllers = angular.module('controllers', ['angoose.client']);
 
-controllers.controller('PersonController', ['$scope', '$http', function ($scope, $http, codeInfo) {
-    $scope.name = codeInfo.findOne().github.username;
+controllers.controller('PersonController', ['$scope', '$http', function ($scope, $http) {
+    $scope.name = '';
     $scope.events = [];
 
     $scope.findEvents = function () {
