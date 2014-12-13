@@ -1,4 +1,5 @@
-var mongoose = require('mongoose'),
+var angoose = require('angoose'),
+    mongoose = angoose.getMongoose(),
     Schema = mongoose.Schema;
 
 var sampleUserSchema = new Schema({
