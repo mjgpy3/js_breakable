@@ -1,6 +1,6 @@
 var app = angular.module('codeBuddy', ['controllers']);
 
-var controllers = angular.module('controllers', ['angoose.client']);
+var controllers = angular.module('controllers', []);
 
 controllers.controller('PersonController', ['$scope', '$http', function ($scope, $http) {
     $scope.name = '';
