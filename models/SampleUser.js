@@ -2,10 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var sampleUserSchema = new Schema({
-    userId: Schema.String,
+    userId: String,
     github: {
-        username: Schema.String
+        username: String
     }
 });
 
-mongoose.model('SampleUser', sampleUserSchema);
+module.exports = mongoose.model('SampleUser', sampleUserSchema);

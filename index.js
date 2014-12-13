@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+var SampleUser = require('./models/SampleUser.js');
+
 require("angoose").init(app, {
    'module-dirs':'./app/js',
    'mongo-opts': process.env.MONGO_CONNECTION_STRING,
