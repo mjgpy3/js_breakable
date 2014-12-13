@@ -1,6 +1,4 @@
 var express = require('express');
-var angular = require('angular');
-var restangular = require('restangular');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
