@@ -1,5 +1,4 @@
-var angular = require('angular'),
-    express = require('express'),
+var express = require('express'),
     routes = require('./routes'),
     http = require('http');;
 
