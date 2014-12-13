@@ -16,6 +16,8 @@ angular.module('codeBuddy.controllers', []).
               $scope.events = [];
           });
     }
+
+    $scope.findEvents();
 }]);
 
 angular.module('codeBuddy.factories', []).
