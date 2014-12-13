@@ -5,10 +5,10 @@
   </head>
   <body>
     <div ng-controller="PersonController">
-      <label>Name: <input type="text" ng-model="name" ng-change="findEvents()"/></label>
-      <label>Events (dump):</label>
+      <label>Name: <input type="text" ng-model="name" ng-change="findEvents()"/></label><br />
+      <label>Recent Activity:</label>
       <ul ng-repeat='event in events'>
-        <li>{{ event.type }} ({{ event.repo.name}})</li>
+        <li>{{ event.type }} to {{ event.repo.name}} at {{ event.created_at }}</li>
       </ul>
     </div>
   </body>
