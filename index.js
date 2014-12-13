@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
-    this.should.break;
+  // yay!
 });
 
 app.set('port', (process.env.PORT || 5000));
