@@ -1,4 +1,5 @@
 var express = require('express');
+var Restangular = require('restangular');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
