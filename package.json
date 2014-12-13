@@ -7,7 +7,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "angoose": "^0.3.21",
     "express": "~4.9.x"
   },
   "engines": {
