@@ -7,7 +7,6 @@ controllers.controller('PersonController', ['$scope', '$http', function ($scope,
     $scope.events = [];
 
     $scope.findEvents = function () {
-        mongoose
         $http.get('https://api.github.com/users/' + $scope.name + '/events?per_page=5').
           success(function(data, status, headers, config) {
               $scope.events = data;
