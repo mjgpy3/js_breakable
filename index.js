@@ -1,13 +1,9 @@
 var express = require('express');
 var app = express();
 
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_CONNECTION_STRING);
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  // yay!
+require("angoose").init(app, {
+   'module-dirs':'/app/js',
+   'mongo-opts': process.env.MONGO_CONNECTION_STRING,
 });
 
 app.set('port', (process.env.PORT || 5000));
