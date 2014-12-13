@@ -14,6 +14,7 @@ controllers.controller('PersonController', ['$scope', '$http', function ($scope,
           error(function(data, status, headers, config) {
               $scope.error = "Could not get activity for '" + $scope.name + "'";
               console.log($scope.error);
+              $scope.events = [];
           });
     }
 }]);
