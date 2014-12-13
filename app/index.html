@@ -5,16 +5,11 @@
   </head>
   <body>
     <div ng-controller="PersonController">
-      <label>Name: <input type="text" ng-model="name"/></label>
+      <label>Name: <input type="text" ng-model="name"/></label><br />
       <label>Activity:</label>
-      <div ng-init="events = [
-        {action:'Push'},
-        {action:'Pull'}
-      ]">
       <ul ng-repeat="event in events">
         <li>{{ event.action }}</li>
       </ul>
-      </div>
     </div>
   </body>
 </html>
