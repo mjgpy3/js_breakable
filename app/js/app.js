@@ -1,5 +1,5 @@
 var PersonController = function ($scope) {
-    $scope.name = "Some Person";
+    $scope.username = "Some Person";
 };
 
 angular.module('codeBuddy', []).
