@@ -6,8 +6,6 @@ require("angoose").init(app, {
    'mongo-opts': process.env.MONGO_CONNECTION_STRING,
 });
 
-var SampleUser = require('./models/SampleUser.js');
-
 app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/app'));
 
