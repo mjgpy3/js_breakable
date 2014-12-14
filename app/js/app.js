@@ -21,8 +21,24 @@ angular.module('codeBuddy.controllers', []).
 }]);
 
 angular.module('codeBuddy.factories', []).
-  factory('person', ['$http', function ($http) {
+  factory('person', ['mongolabGet', function (mongolabGet) {
       return function (personId) {
-          return { userId: '1', github: { username: 'mjgpy3' } };
+          return mongolabGet({ userId: '1' });
+      };
+  }]).
+  factory('mongolabGet', ['$http', function ($http) {
+      return function (query) {
+          var mongoLabApiURL = 'https://api.mongolab.com/api/1/';
+          $http.get(mongoLabApiURL + 'databases/' +
+              process.env.MONGO_DATABASE +
+              '/collections/' +
+              process.env.MONGO_COLLECTION +
+              '?q=' + JSON.stringify(query) + '&c=true&apiKey=' +
+              process.env.MONGOLAB_API_KEY).
+            success(function (data) {
+                return data;
+            }).error(function () {
+                console.log("Mongolab failed to get " + JSON.stringify(query));
+            })
       };
   }]);
