@@ -1,8 +1,8 @@
 var app = angular.module('codeBuddy', ['codeBuddy.controllers', 'codeBuddy.factories']);
 
 angular.module('codeBuddy.controllers', []).
-  controller('PersonController', ['$scope', '$http', 'person', function ($scope, $http, person) {
-    $scope.name = person('1').github.username;
+  controller('PersonController', ['$scope', '$http', 'User', function ($scope, $http, User) {
+    $scope.name = User('1').github.username;
     $scope.events = [];
 
     $scope.findEvents = function () {
@@ -21,24 +21,8 @@ angular.module('codeBuddy.controllers', []).
 }]);
 
 angular.module('codeBuddy.factories', []).
-  factory('person', ['mongolabGet', function (mongolabGet) {
-      return function (personId) {
-          return mongolabGet({ userId: '1' });
-      };
-  }]).
-  factory('mongolabGet', ['$http', function ($http) {
-      return function (query) {
-          var mongoLabApiURL = 'https://api.mongolab.com/api/1/';
-          $http.get(mongoLabApiURL + 'databases/' +
-              process.env.MONGO_DATABASE +
-              '/collections/' +
-              process.env.MONGO_COLLECTION +
-              '?q=' + JSON.stringify(query) + '&c=true&apiKey=' +
-              process.env.MONGOLAB_API_KEY).
-            success(function (data) {
-                return data;
-            }).error(function () {
-                console.log("Mongolab failed to get " + JSON.stringify(query));
-            })
+  factory('User', ['$http', function ($http) {
+      return function (qualifier) {
+          return $http.get('/user/' + qualifier);
       };
   }]);
