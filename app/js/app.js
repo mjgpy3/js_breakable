@@ -23,7 +23,7 @@ angular.module('codeBuddy.controllers', []).
 angular.module('codeBuddy.factories', []).
   factory('User', ['$http', function ($http) {
       return function (qualifier) {
-          $http.get('/user/' + qualifier).success(function (data) {
+          return $http.get('/user/' + qualifier).success(function (data) {
               return data;
           }).error(function () {
               console.log("Failed to get User: " + qualifier);
