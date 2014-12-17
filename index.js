@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/app'));
 
 app.get('/user/:id', function (req, res) {
-    res.send({ userId: '1', github: { username: 'mjgpy3' } });
+    res.send(JSON.stringify({ userId: '1', github: { username: 'mjgpy3' } }));
 });
 
 app.listen(app.get('port'), function() {
